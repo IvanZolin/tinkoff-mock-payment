@@ -19,10 +19,10 @@
         .fail-button { background-color: #dc3545; color: white; }
     </style>
     <script type="text/javascript">
-        // Автоматическое перенаправление на успех через 5 секунд
-        setTimeout(function() {
-            window.location.href = 'tinkofftestapp://payment_success?orderId=12345';
-        }, 5000); // 5 секунд
+        // Убираем автоматическое перенаправление
+        // setTimeout(function() {
+        //     window.location.href = 'tinkofftestapp://payment_success?orderId=12345';
+        // }, 5000);
 
         function redirectToFail() {
             window.location.href = 'tinkofftestapp://payment_fail?orderId=12345&reason=user_cancelled';
@@ -33,14 +33,14 @@
     </script>
 </head>
 <body>
-    <h1>Загрузка страницы оплаты Тинькофф...</h1>
+    <h1>Имитация страницы оплаты Тинькофф</h1>
     <div class="message">
-        <p>Имитация проведения платежа. Вы будете автоматически перенаправлены через 5 секунд.</p>
-        <p>Нажмите кнопки ниже, чтобы имитировать результат вручную:</p>
+        <p>Платеж успешно обработан! (Имитация)</p>
+        <p>Нажмите кнопку, чтобы вернуться в приложение:</p>
     </div>
     <div class="button-container">
-        <button class="success-button" onclick="redirectToSuccess()">Имитировать Успех</button>
-        <button class="fail-button" onclick="redirectToFail()">Имитировать Отмену/Ошибку</button>
+        <button class="success-button" onclick="redirectToSuccess()">Вернуться в приложение (Успех)</button>
+        <button class="fail-button" onclick="redirectToFail()">Вернуться в приложение (Отмена/Ошибка)</button>
     </div>
 </body>
 </html>
