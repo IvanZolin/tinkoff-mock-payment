@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Имитация страницы оплаты Тинькофф</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 100px; }
+        h1 { color: #333; }
+        .message { margin-top: 20px; font-size: 1.2em; }
+        .button-container { margin-top: 30px; }
+        button {
+            padding: 15px 30px;
+            font-size: 1em;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .success-button { background-color: #28a745; color: white; }
+        .fail-button { background-color: #dc3545; color: white; }
+    </style>
+    <script type="text/javascript">
+        // Автоматическое перенаправление на успех через 5 секунд
+        setTimeout(function() {
+            window.location.href = 'tinkofftestapp://payment_success?orderId=12345';
+        }, 5000); // 5 секунд
+
+        function redirectToFail() {
+            window.location.href = 'tinkofftestapp://payment_fail?orderId=12345&reason=user_cancelled';
+        }
+        function redirectToSuccess() {
+            window.location.href = 'tinkofftestapp://payment_success?orderId=12345';
+        }
+    </script>
+</head>
+<body>
+    <h1>Загрузка страницы оплаты Тинькофф...</h1>
+    <div class="message">
+        <p>Имитация проведения платежа. Вы будете автоматически перенаправлены через 5 секунд.</p>
+        <p>Нажмите кнопки ниже, чтобы имитировать результат вручную:</p>
+    </div>
+    <div class="button-container">
+        <button class="success-button" onclick="redirectToSuccess()">Имитировать Успех</button>
+        <button class="fail-button" onclick="redirectToFail()">Имитировать Отмену/Ошибку</button>
+    </div>
+</body>
+</html>
